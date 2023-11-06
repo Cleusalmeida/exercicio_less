@@ -1,0 +1,119 @@
+@import "mapas.less";
+
+@breakpointMobile: ~"(max-width: 767px)";
+@breakpointTablete: ~"(min-width:768px) and (max-width: 1023px)";
+
+.marginBotton8 { /*mixin para não ter que escrever a mesma regra varias vezez (besteira aff)*/
+    margin-bottom: 8px;
+}
+
+
+body {
+    background-color: #colors[backgroundColor];
+    color: #colors[textColor];
+}
+
+li {
+    list-style: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto' sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto; /*centralizar na horizontal*/
+    height: 100vh;
+    display: flex; /*icones um do lado do outro*/
+    flex-direction: column;
+    justify-content: right;/*centralizar no meio da página*/
+
+
+    @media @breakpointMobile {
+        max-width: 70%;
+    }
+
+
+    @media @breakpointTablete {
+        max-width: 80%;
+    }
+}
+
+header {
+    padding-bottom: 24px;
+
+    .profile-avatar {
+        display: block;
+        margin: 0 auto 24px; /*distância entre a foto e o nome*/
+        border-radius: 100px;
+    }
+}
+
+.profile-bio {
+    text-align: center; /*centralizar o nome e a biografia*/
+    
+    
+    &-name {
+        font-size: 16px;
+        .marginBotton8(); /*espaço entre o nome e a bio*/
+    }
+
+    &-subtitle {
+        font-size: 14px;
+        .marginBotton8(); /*espaço entre a bio e o paragrafo*/
+    }
+
+    &-description {
+        font-size: 14px;
+        opacity: .7; /*menos opacidade no paragrafo*/
+    }
+}
+
+.social-links {
+    display: flex; /*um icone ao lado do outro*/
+    justify-content: space-between; /*icones destribuidos de forma uniforme, um longe do outro*/
+    max-width: 240px;
+    width: 100%;
+    margin: 0 auto;
+    li {
+        list-style: none;
+
+        img {
+            &:hover {
+                transition: all ease .5s;
+                transform: scale(1.5); /*aumenta a imagem um porquinho ao passar o mouse*/
+            }
+        }
+    }
+}
+
+.projects-list {
+    margin-top: 32px;
+    &-item {
+        a {
+            text-decoration: none;
+            background-color: #colors[buttonColor];
+            display: block; /*botão ocupa 100% do container*/
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            text-align: center; /*centralizar os textos dentro dos botões*/
+            color: #colors[textColor]; /*cor dos textos dentro dos botões*/
+            font-weight: bold; /*negrito*/
+            border-radius: 30px; /*botões com borda arredondada*/
+            border: 2px solid  #colors[buttonColor];
+            transition: all ease .5s;
+
+
+            &:hover { /*efeito de quando passa o mouse*/
+                color: #colors[buttonColor];
+                background-color: transparent; /*botão transparente ao passar o mouse*/
+            }
+        }
+    }
+}
+
